@@ -1,0 +1,300 @@
+/* ============================================================
+   DataInsight Workbench — Design Tokens v1.0
+   三阶层体系：Primitive → Semantic → Component
+   Brand: Insight Prism | 主色 Deep Indigo #4F46E5
+   ============================================================ */
+
+/* === LAYER 1: PRIMITIVE TOKENS ============================= */
+
+:root {
+  /* --- Color Primitives (HSL space-separated for Tailwind opacity) --- */
+  --color-indigo-50: 226 100% 97%;
+  --color-indigo-100: 226 100% 93%;
+  --color-indigo-200: 228 96% 89%;
+  --color-indigo-300: 230 94% 82%;
+  --color-indigo-400: 234 89% 74%;
+  --color-indigo-500: 239 84% 67%;
+  --color-indigo-600: 243 75% 59%;   /* #4F46E5 — Deep Indigo */
+  --color-indigo-700: 245 58% 51%;
+  --color-indigo-800: 244 55% 41%;
+  --color-indigo-900: 242 47% 34%;
+
+  --color-cyan-50: 183 100% 96%;
+  --color-cyan-100: 185 96% 90%;
+  --color-cyan-200: 186 94% 82%;
+  --color-cyan-300: 187 92% 69%;
+  --color-cyan-400: 188 86% 53%;
+  --color-cyan-500: 189 94% 43%;     /* #06B6D4 — Insight Cyan */
+  --color-cyan-600: 192 91% 36%;
+  --color-cyan-700: 194 80% 27%;
+  --color-cyan-800: 196 75% 21%;
+  --color-cyan-900: 198 73% 17%;
+
+  --color-amber-50: 48 100% 96%;
+  --color-amber-100: 48 96% 89%;
+  --color-amber-200: 48 97% 77%;
+  --color-amber-300: 46 97% 65%;
+  --color-amber-400: 43 96% 56%;
+  --color-amber-500: 38 92% 50%;     /* #F59E0B — Signal Amber */
+  --color-amber-600: 32 95% 44%;
+  --color-amber-700: 26 90% 37%;
+  --color-amber-800: 23 82% 31%;
+  --color-amber-900: 22 78% 26%;
+
+  --color-slate-50: 210 40% 98%;     /* #F8FAFC — Page BG */
+  --color-slate-100: 210 40% 96%;
+  --color-slate-200: 214 32% 91%;    /* #E2E8F0 — Border */
+  --color-slate-300: 213 27% 84%;
+  --color-slate-400: 215 20% 65%;
+  --color-slate-500: 215 16% 47%;    /* #64748B — Secondary text */
+  --color-slate-600: 215 19% 35%;
+  --color-slate-700: 215 25% 27%;
+  --color-slate-800: 217 33% 17%;    /* #1E293B — Body text */
+  --color-slate-900: 222 47% 11%;
+
+  --color-white: 0 0% 100%;
+  --color-black: 222 47% 11%;
+
+  --color-emerald-500: 160 84% 39%;
+  --color-red-500: 0 84% 60%;
+
+  /* --- Spacing Primitives (4px base grid) --- */
+  --space-1: 0.25rem;   /*  4px */
+  --space-2: 0.5rem;    /*  8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+
+  /* --- Typography Primitives --- */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+
+  /* --- Radius Primitives --- */
+  --radius-none: 0;
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-full: 9999px;
+
+  /* --- Shadow Primitives --- */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* --- Duration Primitives --- */
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+}
+
+/* === LAYER 2: SEMANTIC TOKENS =============================== */
+
+:root {
+  /* --- Background & Foreground --- */
+  --background: var(--color-slate-50);
+  --foreground: var(--color-slate-800);
+
+  /* --- Primary (Deep Indigo) --- */
+  --primary: var(--color-indigo-600);
+  --primary-foreground: var(--color-white);
+  --primary-hover: var(--color-indigo-700);
+  --primary-active: var(--color-indigo-800);
+
+  /* --- Secondary (Cyan) --- */
+  --secondary: var(--color-cyan-500);
+  --secondary-foreground: var(--color-white);
+  --secondary-hover: var(--color-cyan-600);
+
+  /* --- Accent (Amber — calls to action) --- */
+  --accent: var(--color-amber-500);
+  --accent-foreground: var(--color-slate-800);
+  --accent-hover: var(--color-amber-600);
+
+  /* --- Muted — subdued UI elements --- */
+  --muted: var(--color-slate-100);
+  --muted-foreground: var(--color-slate-500);
+
+  /* --- Card surfaces --- */
+  --card: var(--color-white);
+  --card-foreground: var(--color-slate-800);
+
+  /* --- Destructive --- */
+  --destructive: var(--color-red-500);
+  --destructive-foreground: var(--color-white);
+
+  /* --- Success --- */
+  --success: var(--color-emerald-500);
+  --success-foreground: var(--color-white);
+
+  /* --- Borders & Inputs --- */
+  --border: var(--color-slate-200);
+  --input: var(--color-slate-200);
+  --ring: var(--color-indigo-600);
+
+  /* --- Semantic Spacing --- */
+  --spacing-component: var(--space-4);
+  --spacing-section: var(--space-8);
+  --spacing-page: var(--space-12);
+
+  /* --- Semantic Radius --- */
+  --radius: var(--radius-lg);
+
+  /* --- Semantic Shadow --- */
+  --shadow-card: var(--shadow-sm);
+  --shadow-elevated: var(--shadow-md);
+  --shadow-modal: var(--shadow-xl);
+}
+
+/* === LAYER 3: COMPONENT TOKENS ============================== */
+
+:root {
+  /* --- Button — Primary --- */
+  --btn-primary-bg: var(--primary);
+  --btn-primary-fg: var(--primary-foreground);
+  --btn-primary-hover-bg: var(--primary-hover);
+  --btn-primary-active-bg: var(--primary-active);
+  --btn-padding-x: var(--space-4);
+  --btn-padding-y: var(--space-2);
+  --btn-radius: var(--radius-md);
+  --btn-font-size: var(--font-size-sm);
+  --btn-font-weight: var(--font-weight-medium);
+  --btn-height-sm: 2rem;     /* 32px */
+  --btn-height-md: 2.5rem;   /* 40px */
+  --btn-height-lg: 3rem;     /* 48px */
+  --btn-disabled-opacity: 0.5;
+
+  /* --- Button — Secondary --- */
+  --btn-secondary-bg: var(--muted);
+  --btn-secondary-fg: var(--foreground);
+  --btn-secondary-hover-bg: var(--color-slate-200);
+
+  /* --- Button — Ghost --- */
+  --btn-ghost-bg: transparent;
+  --btn-ghost-fg: var(--foreground);
+  --btn-ghost-hover-bg: var(--muted);
+
+  /* --- Button — Accent (CTA) --- */
+  --btn-accent-bg: var(--accent);
+  --btn-accent-fg: var(--accent-foreground);
+  --btn-accent-hover-bg: var(--accent-hover);
+
+  /* --- Input --- */
+  --input-bg: var(--color-white);
+  --input-border: var(--border);
+  --input-fg: var(--foreground);
+  --input-placeholder: var(--muted-foreground);
+  --input-padding-x: var(--space-3);
+  --input-padding-y: var(--space-2);
+  --input-radius: var(--radius-md);
+  --input-height: 2.5rem;    /* 40px */
+  --input-focus-ring-color: var(--ring);
+
+  /* --- Card --- */
+  --card-bg: var(--card);
+  --card-fg: var(--card-foreground);
+  --card-border: var(--border);
+  --card-radius: var(--radius-lg);
+  --card-shadow: var(--shadow-card);
+  --card-padding: var(--space-6);
+  --card-header-padding: var(--space-6) var(--space-6) 0;
+  --card-content-padding: var(--space-6);
+  --card-footer-padding: 0 var(--space-6) var(--space-6);
+
+  /* --- Chart Container Card --- */
+  --chart-card-radius: var(--radius-lg);
+  --chart-card-shadow: var(--shadow-card);
+  --chart-card-bg: var(--color-white);
+  --chart-card-min-height: 320px;
+
+  /* --- Data Table --- */
+  --table-header-bg: var(--color-slate-50);
+  --table-header-fg: var(--foreground);
+  --table-row-bg: var(--color-white);
+  --table-row-hover-bg: var(--color-slate-50);
+  --table-row-striped-bg: var(--color-slate-50);
+  --table-cell-padding: var(--space-3) var(--space-4);
+  --table-border: var(--border);
+  --table-radius: var(--radius-lg);
+  --table-row-height-default: 3rem;   /* 48px */
+  --table-row-height-compact: 2.5rem; /* 40px */
+
+  /* --- Dashboard Grid --- */
+  --dashboard-gap: var(--space-4);
+  --dashboard-card-min-w: 280px;
+  --dashboard-card-min-h: 200px;
+
+  /* --- Toast / Notification --- */
+  --toast-radius: var(--radius-md);
+  --toast-shadow: var(--shadow-lg);
+  --toast-padding: var(--space-4) var(--space-4);
+  --toast-success-bg: var(--color-emerald-500);
+  --toast-error-bg: var(--color-red-500);
+  --toast-info-bg: var(--color-indigo-600);
+  --toast-fg: var(--color-white);
+
+  /* --- Navbar --- */
+  --navbar-height: 4rem;     /* 64px */
+  --navbar-bg: var(--color-white);
+  --navbar-border: var(--border);
+  --navbar-shadow: var(--shadow-sm);
+
+  /* --- File Upload Drop Zone --- */
+  --dropzone-border-style: dashed;
+  --dropzone-border-color: var(--border);
+  --dropzone-border-color-active: var(--ring);
+  --dropzone-bg: var(--color-slate-50);
+  --dropzone-bg-hover: var(--color-indigo-50);
+  --dropzone-radius: var(--radius-lg);
+  --dropzone-padding: var(--space-12) var(--space-8);
+
+  /* --- Transition --- */
+  --transition-colors: color var(--duration-fast) ease-in-out,
+                       background-color var(--duration-fast) ease-in-out,
+                       border-color var(--duration-fast) ease-in-out,
+                       box-shadow var(--duration-fast) ease-in-out;
+}
+
+/* === DARK MODE OVERRIDES (reserved for v2) ================== */
+.dark {
+  --background: var(--color-slate-900);
+  --foreground: var(--color-slate-50);
+  --card: var(--color-slate-800);
+  --card-foreground: var(--color-slate-50);
+  --muted: var(--color-slate-800);
+  --muted-foreground: var(--color-slate-400);
+  --border: var(--color-slate-700);
+  --input: var(--color-slate-700);
+}
+
+/* === UTILITY CLASSES ======================================== */
+
+@layer utilities {
+  .transition-interactive {
+    transition: var(--transition-colors);
+  }
+}
