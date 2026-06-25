@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import UploadPage from './pages/UploadPage';
 import PreviewPage from './pages/PreviewPage';
 import ExplorePage from './pages/ExplorePage';
+import DashboardPage from './pages/DashboardPage';
 
 export default function App() {
   return (
@@ -21,7 +22,7 @@ export default function App() {
                 <Route path="/upload" element={<UploadPage />} />
                 <Route path="/preview/:id" element={<PreviewPage />} />
                 <Route path="/explore/:id" element={<ExplorePage />} />
-                <Route path="/dashboard/:id" element={<div className="text-center py-20"><h2 className="text-xl font-semibold text-slate-700">仪表板报告</h2><p className="text-slate-400 mt-2">开发中...</p></div>} />
+                <Route path="/dashboard/:id" element={<DashboardPage />} />
               </Routes>
             </main>
           </BrowserRouter>
