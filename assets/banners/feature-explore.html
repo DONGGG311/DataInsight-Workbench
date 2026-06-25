@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=800, height=500">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 800px; height: 500px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+  }
+  .card {
+    width: 100%; height: 100%;
+    background: #F8FAFC;
+    display: flex;
+  }
+  /* 左侧配置面板 */
+  .sidebar {
+    width: 220px; background: #FFFFFF;
+    border-right: 1px solid #E2E8F0;
+    padding: 20px 16px; overflow-y: auto;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .sidebar-label {
+    font-size: 10px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.05em; color: #94A3B8;
+  }
+  /* 图表类型按钮 */
+  .chart-types {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 4px;
+  }
+  .chart-btn {
+    padding: 6px 4px; border-radius: 6px; border: 1px solid #E2E8F0;
+    background: #F8FAFC; text-align: center; font-size: 10px;
+    color: #64748B; font-weight: 500;
+  }
+  .chart-btn.active {
+    background: #EEF2FF; border-color: #818CF8; color: #4F46E5;
+  }
+  /* 选择框 */
+  .select-box {
+    width: 100%; padding: 8px 10px; border-radius: 8px;
+    border: 1px solid #E2E8F0; background: #FFFFFF;
+    font-size: 12px; color: #1E293B;
+    appearance: none;
+  }
+  /* 右侧画布 */
+  .main {
+    flex: 1; display: flex; flex-direction: column;
+    background: #FFFFFF; margin: 16px;
+    border-radius: 12px; border: 1px solid #E2E8F0;
+    overflow: hidden;
+  }
+  .chart-header {
+    padding: 14px 20px; border-bottom: 1px solid #F1F5F9;
+    font-size: 14px; font-weight: 600; color: #1E293B;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .chart-actions { display: flex; gap: 8px; }
+  .chart-action {
+    width: 28px; height: 28px; border-radius: 6px;
+    border: 1px solid #E2E8F0; background: #FFFFFF;
+    color: #94A3B8; display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .chart-body {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  /* 模拟散点图 */
+  .scatter-plot {
+    position: relative; width: 320px; height: 250px;
+    border-left: 2px solid #CBD5E1; border-bottom: 2px solid #CBD5E1;
+  }
+  .dot {
+    position: absolute; width: 8px; height: 8px; border-radius: 50%;
+    background: #4F46E5; opacity: 0.7;
+  }
+  .dot.c { background: #06B6D4; }
+  .dot.a { background: #F59E0B; }
+  /* 坐标轴标签 */
+  .axis-label-x {
+    position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%);
+    font-size: 11px; color: #94A3B8;
+  }
+  .axis-label-y {
+    position: absolute; left: -36px; top: 50%; transform: rotate(-90deg) translateX(-50%);
+    font-size: 11px; color: #94A3B8;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <!-- 左侧面板 -->
+  <div class="sidebar">
+    <div>
+      <div class="sidebar-label" style="margin-bottom:8px;">图表类型</div>
+      <div class="chart-types">
+        <div class="chart-btn" style="background:#EEF2FF;border-color:#818CF8;color:#4F46E5;">柱状</div>
+        <div class="chart-btn">折线</div>
+        <div class="chart-btn active">散点</div>
+        <div class="chart-btn">饼图</div>
+        <div class="chart-btn">直方</div>
+        <div class="chart-btn">箱线</div>
+        <div class="chart-btn" style="grid-column:span 3;">热力图</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sidebar-label" style="margin-bottom:6px;">X 轴</div>
+      <select class="select-box"><option>广告投入</option></select>
+    </div>
+
+    <div>
+      <div class="sidebar-label" style="margin-bottom:6px;">Y 轴</div>
+      <select class="select-box"><option>销售额</option></select>
+    </div>
+
+    <div>
+      <div class="sidebar-label" style="margin-bottom:6px;">分组 (可选)</div>
+      <select class="select-box"><option style="color:#94A3B8;">无分组</option></select>
+    </div>
+  </div>
+
+  <!-- 右侧图表 -->
+  <div class="main">
+    <div class="chart-header">
+      销售额 vs 广告投入
+      <div class="chart-actions">
+        <div class="chart-action">⬇</div>
+        <div class="chart-action">＋</div>
+        <div class="chart-action">⛶</div>
+      </div>
+    </div>
+    <div class="chart-body">
+      <div class="scatter-plot">
+        <!-- 模拟散点分布 -->
+        <div class="dot" style="left:15%;bottom:20%;"></div>
+        <div class="dot" style="left:22%;bottom:25%;background:#06B6D4;"></div>
+        <div class="dot" style="left:28%;bottom:35%;background:#06B6D4;"></div>
+        <div class="dot" style="left:35%;bottom:30%;"></div>
+        <div class="dot" style="left:40%;bottom:45%;"></div>
+        <div class="dot" style="left:45%;bottom:50%;background:#F59E0B;"></div>
+        <div class="dot" style="left:50%;bottom:55%;"></div>
+        <div class="dot" style="left:55%;bottom:60%;"></div>
+        <div class="dot" style="left:58%;bottom:58%;background:#06B6D4;"></div>
+        <div class="dot" style="left:62%;bottom:65%;background:#F59E0B;"></div>
+        <div class="dot" style="left:65%;bottom:62%;"></div>
+        <div class="dot" style="left:70%;bottom:75%;"></div>
+        <div class="dot" style="left:75%;bottom:80%;"></div>
+        <div class="dot" style="left:78%;bottom:78%;"></div>
+        <div class="dot" style="left:82%;bottom:85%;"></div>
+        <div class="dot" style="left:85%;bottom:88%;background:#F59E0B;"></div>
+        <div class="dot c" style="left:30%;bottom:60%;"></div>
+        <div class="dot a" style="left:68%;bottom:42%;"></div>
+        <div class="axis-label-x">广告投入 (元)</div>
+        <div class="axis-label-y">销售额 (元)</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

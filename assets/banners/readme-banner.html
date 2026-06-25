@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200, height=500">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 500px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+  }
+  .banner {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #312E81 0%, #4F46E5 30%, #3730A3 50%, #1E293B 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  /* 背景装饰网格 */
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  /* 光晕 */
+  .glow-1 {
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(79,70,229,0.4), transparent 70%);
+    top: -150px; left: -100px;
+  }
+  .glow-2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(6,182,212,0.25), transparent 70%);
+    bottom: -100px; right: -50px;
+  }
+  .glow-3 {
+    position: absolute;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(245,158,11,0.2), transparent 70%);
+    top: 50%; left: 60%;
+    transform: translate(-50%, -50%);
+  }
+  /* 内容 */
+  .content {
+    position: relative; z-index: 10;
+    text-align: center;
+    padding: 0 60px;
+  }
+  /* Logo prism mark */
+  .prism {
+    display: flex; justify-content: center; align-items: center;
+    gap: 8px; margin-bottom: 28px;
+  }
+  .prism-dot {
+    width: 12px; height: 12px; border-radius: 3px;
+  }
+  .prism-dot.i { background: #818CF8; } /* Indigo 400 */
+  .prism-dot.c { background: #22D3EE; } /* Cyan 400 */
+  .prism-dot.a { background: #FBBF24; } /* Amber 400 */
+  .prism-row { display: flex; gap: 8px; }
+  /* 标题 */
+  h1 {
+    font-size: 52px; font-weight: 700; letter-spacing: -0.02em;
+    color: #FFFFFF; line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  h1 .accent { color: #22D3EE; }
+  /* 副标题 */
+  .subtitle {
+    font-size: 20px; color: rgba(255,255,255,0.7);
+    font-weight: 400; line-height: 1.5;
+    max-width: 700px; margin: 0 auto 32px;
+  }
+  /* 标签 */
+  .tags {
+    display: flex; gap: 12px; justify-content: center;
+    flex-wrap: wrap;
+  }
+  .tag {
+    padding: 6px 16px; border-radius: 20px;
+    font-size: 13px; font-weight: 500;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85);
+  }
+  .tag.highlight {
+    background: rgba(245,158,11,0.2);
+    border-color: rgba(245,158,11,0.3);
+    color: #FCD34D;
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="bg-grid"></div>
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+  <div class="glow-3"></div>
+
+  <div class="content">
+    <!-- 棱镜 Mark -->
+    <div class="prism">
+      <div class="prism-row">
+        <div class="prism-dot i"></div>
+        <div class="prism-dot c"></div>
+        <div class="prism-dot a"></div>
+      </div>
+    </div>
+
+    <h1>Data<span class="accent">Insight</span> Workbench</h1>
+    <p class="subtitle">
+      数据洞察工作台 — 上传 · 分析 · 可视化 · 报告，无需编程
+    </p>
+
+    <div class="tags">
+      <span class="tag">📤 CSV/Excel Upload</span>
+      <span class="tag">📊 Auto Profiling</span>
+      <span class="tag highlight">📋 Dashboard Report</span>
+      <span class="tag">🐍 Python + React</span>
+      <span class="tag">📦 MIT Licensed</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
