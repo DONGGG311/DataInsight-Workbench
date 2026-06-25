@@ -16,6 +16,8 @@ app.add_middleware(
 
 from routers import datasets
 app.include_router(datasets.router)
+from routers import data
+app.include_router(data.router)
 
 @app.on_event("startup")
 def startup():
