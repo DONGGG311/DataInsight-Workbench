@@ -3,17 +3,9 @@ import { DatasetProvider } from './context/DatasetContext';
 import { ToastProvider } from './components/ui/Toast';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import Navbar from './components/layout/Navbar';
-
-function PlaceholderPage({ title }: { title: string }) {
-  return (
-    <div className="flex items-center justify-center py-20">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold text-slate-800 mb-2">{title}</h1>
-        <p className="text-slate-400">页面开发中...</p>
-      </div>
-    </div>
-  );
-}
+import HomePage from './pages/HomePage';
+import UploadPage from './pages/UploadPage';
+import PreviewPage from './pages/PreviewPage';
 
 export default function App() {
   return (
@@ -24,11 +16,11 @@ export default function App() {
             <Navbar />
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
               <Routes>
-                <Route path="/" element={<PlaceholderPage title="首页" />} />
-                <Route path="/upload" element={<PlaceholderPage title="数据上传" />} />
-                <Route path="/preview/:id" element={<PlaceholderPage title="数据预览" />} />
-                <Route path="/explore/:id" element={<PlaceholderPage title="图表探索" />} />
-                <Route path="/dashboard/:id" element={<PlaceholderPage title="仪表板报告" />} />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/upload" element={<UploadPage />} />
+                <Route path="/preview/:id" element={<PreviewPage />} />
+                <Route path="/explore/:id" element={<div className="text-center py-20"><h2 className="text-xl font-semibold text-slate-700">图表探索</h2><p className="text-slate-400 mt-2">开发中...</p></div>} />
+                <Route path="/dashboard/:id" element={<div className="text-center py-20"><h2 className="text-xl font-semibold text-slate-700">仪表板报告</h2><p className="text-slate-400 mt-2">开发中...</p></div>} />
               </Routes>
             </main>
           </BrowserRouter>
