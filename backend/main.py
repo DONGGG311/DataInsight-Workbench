@@ -18,6 +18,10 @@ from routers import datasets
 app.include_router(datasets.router)
 from routers import data
 app.include_router(data.router)
+from routers import chart
+app.include_router(chart.router)
+from routers import profile
+app.include_router(profile.router)
 
 @app.on_event("startup")
 def startup():
