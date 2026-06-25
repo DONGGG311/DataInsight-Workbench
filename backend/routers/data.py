@@ -1,4 +1,6 @@
 from fastapi import APIRouter, HTTPException
+from fastapi.responses import StreamingResponse
+import io
 from database import get_db
 from services.parser import _safe_value
 from config import settings
@@ -53,3 +55,16 @@ def get_dataset_data(dataset_id: str, page: int = 1, size: int = 50):
         "page_size": size,
         "columns": list(df.columns)
     }
+
+@router.get("/{dataset_id}/export/csv")
+def export_csv(dataset_id: str):
+    filepath = _get_file_path(dataset_id)
+    df = pd.read_csv(filepath) if filepath.endswith('.csv') else pd.read_excel(filepath)
+    stream = io.StringIO()
+    df.to_csv(stream, index=False)
+    response = StreamingResponse(
+        iter([stream.getvalue()]),
+        media_type="text/csv",
+    )
+    response.headers["Content-Disposition"] = f"attachment; filename={dataset_id}.csv"
+    return response
