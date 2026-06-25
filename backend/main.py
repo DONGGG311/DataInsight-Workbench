@@ -14,6 +14,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from routers import datasets
+app.include_router(datasets.router)
+
 @app.on_event("startup")
 def startup():
     os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
