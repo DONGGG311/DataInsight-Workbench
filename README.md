@@ -14,6 +14,14 @@
   <img src="https://img.shields.io/badge/deploy-Docker%20Compose-2496ED?logo=docker" alt="Deploy">
 </p>
 
+## Demo
+
+<p align="center">
+  <img src="assets/banners/demo.gif" alt="DataInsight Demo" width="100%">
+</p>
+<em align="center">上传 CSV → 数据预览 → 交互图表探索 → 仪表板报告，全流程 30 秒</em>
+</p>
+
 ---
 
 ## 目录
