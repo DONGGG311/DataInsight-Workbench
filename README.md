@@ -1,7 +1,5 @@
 <p align="center">
   <img src="assets/banners/readme-banner.png" alt="DataInsight Workbench" width="100%">
-  <br>
-  <em>提示：请截图 <code>assets/banners/readme-banner.html</code> 在浏览器中的渲染效果并另存为 <code>readme-banner.png</code></em>
 </p>
 
 <h1 align="center">DataInsight Workbench</h1>
@@ -120,7 +118,7 @@ cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 ```
-
+输入python -m uvicorn main:app --reload --port 8000
 后端 API 运行在 http://localhost:8000
 
 **3. 启动前端**（新开终端）
